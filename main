@@ -26,4 +26,5 @@ singularity exec \
     -h $do_hist_match ${orient:+-i $orient} \
     -o /root/output -c /root/input
 
-exit $?
+#exit code from the last command (singularity) will be used.
+#exit $?
