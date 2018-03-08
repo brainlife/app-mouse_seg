@@ -1,4 +1,4 @@
-ROM ubuntu:xenial
+FROM ubuntu:xenial
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -30,15 +30,17 @@ RUN apt-get update -qq \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 #install niftyreg
-#RUN cd /tmp && git clone git://git.code.sf.net/p/niftyreg/git niftyreg-git \
-#    && mkdir niftyreg_build && cd niftyreg_build \
-#    && cmake ../niftyreg-git -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/ \
-#    && make && make install && rm -rf /tmp/niftyreg-git /tmp/niftyreg_build
-RUN mkdir -p /tmp/niftyreg-git
-ADD niftyreg-git /tmp/niftyreg-git
-RUN cd /tmp && mkdir niftyreg_build && cd niftyreg_build \
+RUN cd /tmp && git clone git://git.code.sf.net/p/niftyreg/git niftyreg-git \
+    && mkdir niftyreg_build && cd niftyreg_build \
     && cmake ../niftyreg-git -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/ \
     && make && make install && rm -rf /tmp/niftyreg-git /tmp/niftyreg_build
+
+#if niftyreg git repo down
+#RUN mkdir -p /tmp/niftyreg-git
+#ADD niftyreg-git /tmp/niftyreg-git
+#RUN cd /tmp && mkdir niftyreg_build && cd niftyreg_build \
+#    && cmake ../niftyreg-git -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local/ \
+#    && make && make install && rm -rf /tmp/niftyreg-git /tmp/niftyreg_build
 
 #install freesurfer WITH license
 RUN curl ftp://surfer.nmr.mgh.harvard.edu/pub/dist/freesurfer/6.0.0/freesurfer-Linux-centos6_x86_64-stable-pub-v6.0.0.tar.gz | tar xvz -C /usr/local

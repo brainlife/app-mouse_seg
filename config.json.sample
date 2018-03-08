@@ -2,7 +2,7 @@
     "id": "subject_id",
     "anat": "/path/to/input/image.nii.gz or /path/to/DICOM/dir",
     "orient": "leave blank unless orientation string is incorrect for image (3dinfo)",
-    "do_n4": "(0/1) Perform N4 (improved nonparametric nonuniform normalization) bias field correction on input. 0: skip N4 bias field correction, 1: do N4 bias field correction",
-    "do_hist_match": "(0/1) When skull-stripping, use histogram matching to propagate template tissue segmentations onto the target image. 0: skip histogram matching, 1: use histogram matching",
-    "reg_type": "(affine/rigid): When skull-stripping, register target to template affinely (allows scaling) or rigidly (no scaling).",
+    "do_n4": "(true/false) Perform N4 (improved nonparametric nonuniform normalization) bias field correction on input. Default: true",
+    "do_hist_match": "(true/false) When skull-stripping, use histogram matching to propagate template tissue segmentations onto the target image. Default: true",
+    "reg_type": "(affine/rigid): When skull-stripping, register target to template affinely (allows scaling) or rigidly (no scaling). Default: affine",
 }
