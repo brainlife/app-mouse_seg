@@ -12,6 +12,10 @@ cp $anat input/
 anat=$(basename $anat)
 mkdir -p output
 
+if [[ -z $id ]]; then
+    id=${anat%.*}
+fi
+
 #sudo docker run -v $(pwd)/input:/root/input -v $(pwd)/output:/root/output \
 #    -i -rm -t mouse_seg /bin/bash /usr/local/scripts/run_mouse_pipeline.sh \
 #    -s $id -n $do_n4 -a $anat -r $reg_type  \

@@ -1,5 +1,5 @@
 {
-    "id": "subject_id",
+    "id": "subject_id (optional)",
     "anat": "/path/to/input/image.nii.gz or /path/to/DICOM/dir",
     "orient": "leave blank unless orientation string is incorrect for image (3dinfo)",
     "do_n4": "(true/false) Perform N4 (improved nonparametric nonuniform normalization) bias field correction on input. Default: true",
