@@ -24,7 +24,7 @@ fi
 
 singularity exec \
     -B $(pwd)/input:/root/input -B $(pwd)/output:/root/output \
-    docker://katealpert/mouse_seg \
+    docker://katealpert/mouse_seg:v0.0 \
     /bin/bash /usr/local/scripts/run_mouse_pipeline.sh \
     -s $id -n $do_n4 -a $anat -r $reg_type  \
     -h $do_hist_match ${orient:+-i $orient} \
