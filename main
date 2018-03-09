@@ -12,7 +12,7 @@ cp $anat input/
 anat=$(basename $anat)
 mkdir -p output
 
-if [[ -z $id ]]; then
+if [[ -z $id || $id == null ]]; then
     id=${anat%.*}
 fi
 
