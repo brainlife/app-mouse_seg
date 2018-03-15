@@ -13,7 +13,7 @@ anat=$(basename $anat)
 mkdir -p output
 
 if [[ -z $id || $id == null ]]; then
-    id=${anat%.*}
+    id=$(jq -r "._inputs[0].meta.subject" config.json)
 fi
 
 #sudo docker run -v $(pwd)/input:/root/input -v $(pwd)/output:/root/output \
