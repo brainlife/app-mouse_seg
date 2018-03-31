@@ -22,7 +22,7 @@ fi
 #    -h $do_hist_match ${orient:+-i $orient} \
 #    -o /root/output -c /root/input
 
-singularity exec \
+singularity exec -e \
     -B $(pwd)/input:/root/input -B $(pwd)/output:/root/output \
     docker://katealpert/mouse_seg:v0.0 \
     /bin/bash /usr/local/scripts/run_mouse_pipeline.sh \
